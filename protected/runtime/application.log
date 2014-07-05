@@ -1,0 +1,75 @@
+2013/05/18 01:29:26 [error] [exception.CException] exception 'CException' with message 'CAssetManager.basePath "/Users/budisunarko/webapp/yii1.1.12/demos/blog/assets" is invalid. Please make sure the directory exists and is writable by the Web server process.' in /Users/budisunarko/webapp/yii1.1.12/framework/web/CAssetManager.php:128
+Stack trace:
+#0 /Users/budisunarko/webapp/yii1.1.12/framework/web/CAssetManager.php(113): CAssetManager->setBasePath('/Users/budisuna...')
+#1 /Users/budisunarko/webapp/yii1.1.12/framework/web/CAssetManager.php(235): CAssetManager->getBasePath()
+#2 /Users/budisunarko/webapp/yii1.1.12/framework/zii/widgets/CListView.php(188): CAssetManager->publish('/Users/budisuna...')
+#3 /Users/budisunarko/webapp/yii1.1.12/framework/web/CBaseController.php(148): CListView->init()
+#4 /Users/budisunarko/webapp/yii1.1.12/framework/web/CBaseController.php(173): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#5 /Users/budisunarko/webapp/yii1.1.12/demos/blog/protected/views/post/index.php(9): CBaseController->widget('zii.widgets.CLi...', Array)
+#6 /Users/budisunarko/webapp/yii1.1.12/framework/web/CBaseController.php(127): require('/Users/budisuna...')
+#7 /Users/budisunarko/webapp/yii1.1.12/framework/web/CBaseController.php(96): CBaseController->renderInternal('/Users/budisuna...', Array, true)
+#8 /Users/budisunarko/webapp/yii1.1.12/framework/web/CController.php(870): CBaseController->renderFile('/Users/budisuna...', Array, true)
+#9 /Users/budisunarko/webapp/yii1.1.12/framework/web/CController.php(783): CController->renderPartial('index', Array, true)
+#10 /Users/budisunarko/webapp/yii1.1.12/demos/blog/protected/controllers/PostController.php(136): CController->render('index', Array)
+#11 /Users/budisunarko/webapp/yii1.1.12/framework/web/actions/CInlineAction.php(50): PostController->actionIndex()
+#12 /Users/budisunarko/webapp/yii1.1.12/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#13 /Users/budisunarko/webapp/yii1.1.12/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#14 /Users/budisunarko/webapp/yii1.1.12/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#15 /Users/budisunarko/webapp/yii1.1.12/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#16 /Users/budisunarko/webapp/yii1.1.12/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#17 /Users/budisunarko/webapp/yii1.1.12/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#18 /Users/budisunarko/webapp/yii1.1.12/framework/web/CController.php(292): CFilterChain->run()
+#19 /Users/budisunarko/webapp/yii1.1.12/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 /Users/budisunarko/webapp/yii1.1.12/framework/web/CWebApplication.php(283): CController->run('')
+#21 /Users/budisunarko/webapp/yii1.1.12/framework/web/CWebApplication.php(142): CWebApplication->runController('')
+#22 /Users/budisunarko/webapp/yii1.1.12/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#23 /Users/budisunarko/webapp/yii1.1.12/demos/blog/index.php(11): CApplication->run()
+#24 {main}
+REQUEST_URI=/yii1.1.12/demos/blog/
+---
+2013/05/18 01:31:39 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 8 attempt to write a readonly database. The SQL statement executed was: INSERT INTO 'tbl_post' ("title", "content", "tags", "status", "update_time", "create_time", "author_id") VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+2013/05/18 01:31:39 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY000]: General error: 8 attempt to write a readonly database' in /Users/budisunarko/webapp/yii1.1.12/framework/db/CDbCommand.php:354
+Stack trace:
+#0 /Users/budisunarko/webapp/yii1.1.12/framework/db/ar/CActiveRecord.php(1017): CDbCommand->execute()
+#1 /Users/budisunarko/webapp/yii1.1.12/framework/db/ar/CActiveRecord.php(796): CActiveRecord->insert(NULL)
+#2 /Users/budisunarko/webapp/yii1.1.12/demos/blog/protected/controllers/PostController.php(67): CActiveRecord->save()
+#3 /Users/budisunarko/webapp/yii1.1.12/framework/web/actions/CInlineAction.php(50): PostController->actionCreate()
+#4 /Users/budisunarko/webapp/yii1.1.12/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#5 /Users/budisunarko/webapp/yii1.1.12/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 /Users/budisunarko/webapp/yii1.1.12/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#7 /Users/budisunarko/webapp/yii1.1.12/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 /Users/budisunarko/webapp/yii1.1.12/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 /Users/budisunarko/webapp/yii1.1.12/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 /Users/budisunarko/webapp/yii1.1.12/framework/web/CController.php(292): CFilterChain->run()
+#11 /Users/budisunarko/webapp/yii1.1.12/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /Users/budisunarko/webapp/yii1.1.12/framework/web/CWebApplication.php(283): CController->run('create')
+#13 /Users/budisunarko/webapp/yii1.1.12/framework/web/CWebApplication.php(142): CWebApplication->runController('post/create')
+#14 /Users/budisunarko/webapp/yii1.1.12/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#15 /Users/budisunarko/webapp/yii1.1.12/demos/blog/index.php(11): CApplication->run()
+#16 {main}
+REQUEST_URI=/yii1.1.12/demos/blog/index.php/post/create
+HTTP_REFERER=http://localhost/yii1.1.12/demos/blog/index.php/post/create
+---
+2013/05/18 01:32:33 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 14 unable to open database file. The SQL statement executed was: INSERT INTO 'tbl_post' ("title", "content", "tags", "status", "update_time", "create_time", "author_id") VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+2013/05/18 01:32:33 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY000]: General error: 14 unable to open database file' in /Users/budisunarko/webapp/yii1.1.12/framework/db/CDbCommand.php:354
+Stack trace:
+#0 /Users/budisunarko/webapp/yii1.1.12/framework/db/ar/CActiveRecord.php(1017): CDbCommand->execute()
+#1 /Users/budisunarko/webapp/yii1.1.12/framework/db/ar/CActiveRecord.php(796): CActiveRecord->insert(NULL)
+#2 /Users/budisunarko/webapp/yii1.1.12/demos/blog/protected/controllers/PostController.php(67): CActiveRecord->save()
+#3 /Users/budisunarko/webapp/yii1.1.12/framework/web/actions/CInlineAction.php(50): PostController->actionCreate()
+#4 /Users/budisunarko/webapp/yii1.1.12/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#5 /Users/budisunarko/webapp/yii1.1.12/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 /Users/budisunarko/webapp/yii1.1.12/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#7 /Users/budisunarko/webapp/yii1.1.12/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 /Users/budisunarko/webapp/yii1.1.12/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 /Users/budisunarko/webapp/yii1.1.12/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 /Users/budisunarko/webapp/yii1.1.12/framework/web/CController.php(292): CFilterChain->run()
+#11 /Users/budisunarko/webapp/yii1.1.12/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /Users/budisunarko/webapp/yii1.1.12/framework/web/CWebApplication.php(283): CController->run('create')
+#13 /Users/budisunarko/webapp/yii1.1.12/framework/web/CWebApplication.php(142): CWebApplication->runController('post/create')
+#14 /Users/budisunarko/webapp/yii1.1.12/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#15 /Users/budisunarko/webapp/yii1.1.12/demos/blog/index.php(11): CApplication->run()
+#16 {main}
+REQUEST_URI=/yii1.1.12/demos/blog/index.php/post/create
+HTTP_REFERER=http://localhost/yii1.1.12/demos/blog/index.php/post/create
+---
