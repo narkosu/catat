@@ -8,7 +8,7 @@
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'Catat 123...',
-
+  'theme'=>'simple',  
 	// preloading 'log' component
 	'preload'=>array('log'),
 
@@ -17,7 +17,15 @@ return array(
 		'application.models.*',
 		'application.components.*',
 	),
-
+    'modules'=>array('gii'=>array(
+				'class'=>'system.gii.GiiModule',
+				'password'=>'test',
+				
+				'generatorPaths'=>array(
+					'application.gii',   // a path alias
+				)
+			)),
+    
 	'defaultController'=>'post',
 
 	// application components

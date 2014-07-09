@@ -16,7 +16,9 @@ class Post extends CActiveRecord
 	const STATUS_DRAFT=1;
 	const STATUS_PUBLISHED=2;
 	const STATUS_ARCHIVED=3;
-
+  
+  const ACCESS_PRIVATE = 1;
+  const ACCESS_PUBLIC  = 2;
 	private $_oldTags;
 
 	/**
@@ -44,13 +46,13 @@ class Post extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, content, status', 'required'),
+			array('title, status', 'required'),
 			array('status', 'in', 'range'=>array(1,2,3)),
 			array('title', 'length', 'max'=>128),
 			array('tags', 'match', 'pattern'=>'/^[\w\s,]+$/', 'message'=>'Tags can only contain word characters.'),
 			array('tags', 'normalizeTags'),
 
-			array('title, status', 'safe', 'on'=>'search'),
+			array('title, content, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -131,6 +133,23 @@ class Post extends CActiveRecord
 		return $comment->save();
 	}
 
+  
+  /**
+	 * Adds a new subcontent to this post.
+	 * This method will set status and post_id of the comment accordingly.
+	 * @param Comment the comment to be added
+	 * @return boolean whether the comment is saved successfully
+	 */
+	public function addSubContent($subContent)
+	{
+		if(Yii::app()->params['commentNeedApproval'])
+			$subContent->status = PostContent::STATUS_PENDING;
+		else
+			$subContent->status = PostContent::STATUS_APPROVED;
+		$subContent->post_id=$this->id;
+		return $subContent->save();
+	}
+  
 	/**
 	 * This is invoked when a record is populated with data from a find() call.
 	 */
