@@ -2,7 +2,7 @@
 
 class CatatController extends Controller
 {
-	public $layout='column2';
+	public $layout='/layouts/maincatetan';
 
 	/**
 	 * @var CActiveRecord the currently loaded data model instance.
@@ -28,7 +28,7 @@ class CatatController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to access 'index' and 'view' actions.
-				'actions'=>array('index','view','lihat'),
+				'actions'=>array('index','view','lihat','ajaxSave'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow authenticated users to access all actions
@@ -178,6 +178,37 @@ class CatatController extends Controller
 		));
 	}
 
+  /**
+	 * Creates a new model.
+	 * If creation is successful, the browser will be redirected to the 'view' page.
+	 */
+	public function actionAjaxSave()
+	{
+		if(isset($_POST['ajax']) && $_POST['ajax']==='save-catat')
+		{
+        $post = $_POST;
+        unset($post['ajax']);
+        $model = PostContent::model()->saveCustome($post);
+        //$markdown = new CMarkdown;
+        //echo $markdown->transorm($post['contents']);
+        $this->beginWidget('CMarkdown', array('purifyOutput'=>true));echo $post['contents'];$this->endWidget();
+        
+		}
+    /*$model=new Post;
+		if(isset($_POST['Post']))
+		{
+			$model->attributes=$_POST['Post'];
+			if($model->save())
+				$this->redirect(array('content','id'=>$model->id));
+		}
+
+		$this->render('create',array(
+			'model'=>$model,
+		));
+     * 
+     */
+	}
+  
 	/**
 	 * Suggests tags based on the current user input.
 	 * This is called via AJAX when the user is entering the tags input.
@@ -278,4 +309,6 @@ class CatatController extends Controller
 		}
 		return $comment;
   }
+  
+  
 }

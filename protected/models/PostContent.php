@@ -99,4 +99,18 @@ class PostContent extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+  
+  public function saveCustome($post){
+      if ( isset($post['id']) ){
+          $thisModel = $this->find('id = '.$post['id'] .' AND post_id = ' . $post['post_id'] ); // update
+          
+      }else{
+          $thisModel = new PostContent;
+      }
+      
+      $thisModel->attributes = $post;
+      $thisModel->save();
+      return $thisModel;
+      
+  }
 }

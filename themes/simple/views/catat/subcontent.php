@@ -34,20 +34,25 @@ $cs->registerScriptFile($baseUrl.'/js/subcontent.js');
       <?php foreach ( $subcontent as $content ) { ?>
       <div class="item_subcontent" data-id="row-<?php echo $content->id?>" style="position: relative;">
           <div class="number" style="float:left;width:10px;"><?php echo $number?>.</div>
-          <div style="float:left;width:650px;min-height: 21px;" id="contentmd-<?php echo $content->id?>" data-id="<?php echo $content->id?>" class="markdown-content-area">
-              <?php
-                $this->beginWidget('CMarkdown', array('purifyOutput'=>true));
-                echo $content->contents;
-                $this->endWidget();
-              ?>
-          </div>
-          <div style="float:left;width:650px;" id="content-<?php echo $content->id?>" data-id="<?php echo $content->id?>" class="content-area" contenteditable="true">
-              <?php
-                echo $content->contents;
-              ?>
-          </div>
-          <div style="position:absolute;right:0px;" class="button-catat" id="button-catat-<?php echo $content->id?>" data-id="<?php echo $content->id?>">
-              <span class="button" title="Catat">Catat</span>
+          <div style="float:left;width:650px;">
+                <div style="width:650px;min-height: 21px;" id="contentmd-<?php echo $content->id?>" data-id="<?php echo $content->id?>" class="markdown-content-area">
+                    <?php
+                      $this->beginWidget('CMarkdown', array('purifyOutput'=>true));
+                      echo $content->contents;
+                      $this->endWidget();
+                    ?>
+                </div>
+              <div class="editable-content" id="editable-content-<?php echo $content->id?>">
+                  <form id="form-<?php echo $content->id?>">
+                    <div style="width:650px;" id="content-<?php echo $content->id?>" data-id="<?php echo $content->id?>" class="content-area" contenteditable="true"><?php
+                          echo $content->contents;
+                        ?></div>
+                    <div class="toolbar-content">
+                        <Div class="box-button simpancatat" data-post-id="<?php echo $content->post_id?>" data-id="<?php echo $content->id?>" data-url="<?php echo Yii::app()->createUrl('catat/ajaxsave')?>" id="button-catat-<?php echo $content->id?>" style="display:inline-block;float:right;">Catat</div>
+                        <div style="clear:both"></div>
+                    </div>  
+                  </form>
+              </div>    
           </div>
           <?php /*
           <div style="position:absolute;right:0px;">
