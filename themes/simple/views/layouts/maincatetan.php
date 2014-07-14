@@ -12,6 +12,7 @@
 	<![endif]-->
 
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/maincatetan.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/bootstrap/css/bootstrap.min.css" />
 	
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
