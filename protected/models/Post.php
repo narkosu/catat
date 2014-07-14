@@ -51,6 +51,7 @@ class Post extends CActiveRecord
 			array('title', 'length', 'max'=>128),
 			array('tags', 'match', 'pattern'=>'/^[\w\s,]+$/', 'message'=>'Tags can only contain word characters.'),
 			array('tags', 'normalizeTags'),
+			array('content', 'safe'),
 
 			array('title, content, status', 'safe', 'on'=>'search'),
 		);
