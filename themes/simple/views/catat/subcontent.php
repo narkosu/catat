@@ -33,8 +33,8 @@ $cs->registerScriptFile($baseUrl.'/js/subcontent.js');
       ?>
       <?php foreach ( $subcontent as $content ) { ?>
       <div class="item_subcontent" data-id="row-<?php echo $content->id?>" style="position: relative;">
-          <div class="number" style="float:left;width:10px;"><?php echo $number?>.</div>
-          <div style="float:left;width:650px;">
+          <div class="number" style="float:left;"><?php echo $number?>.</div>
+          <div style="float:left;width:650px;padding-top:3px;">
                 <div style="width:650px;min-height: 21px;" id="contentmd-<?php echo $content->id?>" data-id="<?php echo $content->id?>" class="markdown-content-area">
                     <?php
                       $this->beginWidget('CMarkdown', array('purifyOutput'=>true));
