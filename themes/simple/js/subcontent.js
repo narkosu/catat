@@ -42,7 +42,7 @@ jQuery(function($) {
                 'post_id': $this.attr('data-post-id'),
                 'ajax':'save-catat'
             };
-            alert($content.html())
+            
         var jqxhr = $.post( $this.attr('data-url'), data, function(output) {
                 $mdContent.html(output);
                 $(".isHide").toggle().removeClass('isHide');

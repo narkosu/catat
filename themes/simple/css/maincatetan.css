@@ -54,9 +54,10 @@ body
 
 #logo
 {
-	padding: 10px 20px;
-	font-size: 100%;
+	padding: 10px 0px;
+	font-size: 20px;
   text-transform: uppercase;
+  font-family: georgia,arial;
   font-weight:bold;
 }
 
@@ -151,7 +152,7 @@ div.view
 div.breadcrumbs
 {
 	font-size: 0.9em;
-	padding: 5px 20px;
+	padding: 5px 0px;
 }
 
 div.breadcrumbs span
@@ -205,19 +206,29 @@ div.breadcrumbs span
 
 .post
 {
-	margin: 0 20px;
+	font-family: georgia,arial;
+    margin: 0 14px;
 }
 
 .post .title
 {
-	font-size: 1.5em;
-	border-bottom: 1px solid #C9E0ED;
+ 	font-size: 20px;
+	
+  padding: 5px 0px;
 }
 
 .post .title a
 {
 	color: #555;
 	text-decoration: none;
+}
+
+.post .content
+{
+ 	font-size: 14px;
+	line-height: 21px;
+  padding: 5px 0px;
+  min-height: 21px;
 }
 
 .post .author
@@ -303,12 +314,24 @@ font-size: 16px;
 
 .row-list .row{
     padding:5px 0px;
+    border-bottom: 1px solid #fff; 
 }
 
 .row-list .row:hover{
-    background: #eee;
+    border-bottom:1px solid #eee;
+}
+.fiture-right{
+    display: none;
+}
+.row-list .row:hover .fiture-right{
+    display:block;
 }
 
+.row-list .row a{
+    color:#191919;
+    text-decoration: none;
+    font-size: 20px;
+}
 .text-catatan textArea{
     widt:100%;
     outline: none;padding: 5px;border:1px solid #eee;width:100%;
@@ -358,5 +381,48 @@ outline:none;
 }
 
 .container{
-    width:800px;
+    width:800px !important;
+}
+
+
+/** Button **/
+.button-standard{
+    box-shadow: none;
+    background-color: #f5f5f5;
+    background-image: -webkit-linear-gradient(top,#f5f5f5,#f1f1f1);
+    color:#333;
+    border: 1px solid rgba(0,0,0,0.1)
+}
+
+.simple-button{
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    cursor: default;
+    font-size: 11px;
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap;
+    margin-right: 16px;
+    height: 27px;
+    line-height: 27px;
+    min-width: 54px;
+    outline: 0px;
+    padding: 0 8px;
+}
+
+.flat-standard{
+    color:#191919;
+    outline:none;
+    border:none;
+    border-bottom: 1px solid #eee;
+    width:100%;
+    font-size:16px;
+    font-family: georgia, arial;
+}
+textarea.flat-standard{
+    padding: 5px 0px;
+}
+.flat-standard.title{
+        font-weight: bold;
 }
